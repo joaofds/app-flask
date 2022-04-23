@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request
 
-site_bp = Blueprint('site_page', __name__, template_folder='templates')
+site_bp = Blueprint('site', __name__, template_folder='templates', static_folder='static',
+url_prefix='/site')
 
 @site_bp.route('/', methods=['GET'])
 def index():
