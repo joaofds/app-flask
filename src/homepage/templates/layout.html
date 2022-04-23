@@ -7,46 +7,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
     <!-- Style -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('site.static', filename='css/style.css') }}" />
   </head>
   <body class="d-flex flex-column min-vh-100">
     <!-- navbar inicio -->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
-      <a class="navbar-brand" href="/">
-        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo">
-        Python
-      </a>
-      <span class="navbar-text">
-        Hey, there!
-      </span>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar-list-2">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/site/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/site/contact">Contact</a>
-          </li>
-        </ul>
+    <div class="header-blue">
+      <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+          <div class="container"><a class="navbar-brand" href="/">Flask APP</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+              <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+            </button>
+              <div class="collapse navbar-collapse"
+                  id="navcol-1">
+                  <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/site/about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/site/contact">Contact</a>
+                    </li>
+                      <li class="dropdown">
+                        <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                          <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" role="presentation" href="#">First Item</a>
+                            <a class="dropdown-item" role="presentation" href="#">Second Item</a>
+                            <a class="dropdown-item" role="presentation" href="#">Third Item</a>
+                          </div>
+                      </li>
+                  </ul>
+                  <form class="form-inline mr-auto" target="_self">
+                      <div class="form-group"><label for="search-field"><i class="fa fa-search"></i>
+                      </label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
+                  </form><span class="navbar-text"> <a href="#" class="login">Log In</a></span>
+                  <a class="btn btn-light action-button" role="button" href="#">Sign Up</a></div>
+          </div>
+      </nav>
+      <div class="container hero">
+        <div class="row">
+          <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+              <!-- content inicio -->
+              <div class="container">
+                {% block content %} {% endblock %}
+              </div>
+              <!-- content fim -->
+          </div>
+          <div
+              class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+              <div class="iphone-mockup"><img src="{{ url_for('site.static', filename='img/undraw_product_explainer_8jbm.svg') }}" class="device">
+              </div>
+          </div>
       </div>
-    </nav>
-    <!-- navbar fim -->
-
-    <!-- content inicio -->
-    <div class="container">
-      {% block content %} {% endblock %}
+      </div>
     </div>
-    <!-- content fim -->
+    <!-- navbar fim -->
 
     <!-- footer inicio -->
     <footer class="mt-auto">
@@ -150,10 +170,10 @@
     <!-- footer fim -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
 </html>
